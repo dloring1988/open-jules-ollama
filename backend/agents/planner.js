@@ -19,13 +19,15 @@ Return your response as a structured plan with numbered steps. Be specific about
     const prompt = `Task: ${task}
 
 Please create a detailed technical implementation plan for this task. Break it down into clear, sequential steps that a developer can follow. For each step, consider:
-- What files might need to be created or modified
-- What specific code changes are needed
-- What dependencies or libraries might be required
-- The logical order of implementation
+- Specific files to be created or modified, including their full paths.
+- Detailed description of code changes required, including function signatures, class definitions, and logic modifications.
+- Any new dependencies or libraries that will be needed, and how to install them.
+- The logical order of implementation.
+- Key functions or classes that will be involved in this step.
+- How this step contributes to the overall task.
 - Any potential technical challenges or considerations
 
-Provide a numbered list of specific, actionable steps to complete this task.`;
+Provide a numbered list of specific, actionable steps to complete this task. Ensure that each step provides enough detail for another AI agent to implement the changes directly.`;
 
     try {
       const response = await this.ollamaService.generateResponse(this.model, prompt, systemPrompt);
